@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(data:image/jpeg;base64,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);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/03/24/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-24T15:38:17.380Z" title="Created 2025-03-24 23:38:17">2025-03-24</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/24/hello-world/" title="Hello World">Hello World</a><time datetime="2025-03-24T15:38:17.380Z" title="Created 2025-03-24 23:38:17">2025-03-24</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              March 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-03-25T11:51:05.133Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
